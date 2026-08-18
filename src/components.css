@@ -46,12 +46,15 @@
 }
 
 #blyrics-loader::before {
+  content: "";
+  display: block;
   width: 3.75rem;
   height: 3.75rem;
   border-radius: var(--m3-shape-extra-large);
   background: var(--m3-primary-container);
   box-shadow: var(--m3-elevation-level2);
   border: 1px solid color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  flex-shrink: 0;
   animation: m3e-loader-breathe 1.8s infinite var(--m3-motion-easing-emphasized);
 }
 
@@ -66,6 +69,8 @@
 }
 
 #blyrics-loader::after {
+  content: var(--blyrics-loader-text, "");
+  display: block;
   font-size: clamp(1.1rem, 2.2vw, 1.65rem);
   font-weight: var(--m3-type-title-medium-weight);
   line-height: var(--m3-type-title-medium-line-height);
@@ -101,6 +106,32 @@
 #blyrics-loader[state="exiting-message"]::after {
   color: var(--m3-on-surface);
   -webkit-text-fill-color: var(--m3-on-surface);
+}
+
+/* Better Lyrics' no-lyrics state is rendered by YouTube Music itself. */
+#tab-renderer > ytmusic-message-renderer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 12rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: var(--m3-on-surface);
+}
+
+#tab-renderer > ytmusic-message-renderer > yt-formatted-string.text.style-scope.ytmusic-message-renderer {
+  display: block;
+  width: min(34rem, 100%);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-shape-extra-large);
+  background: color-mix(in srgb, var(--m3-surface-container) 94%, transparent);
+  box-shadow: var(--m3-elevation-level1);
+  color: var(--m3-on-surface-variant);
+  font: var(--m3-type-body-large-weight) var(--m3-type-body-large-size)/var(--m3-type-body-large-line-height) var(--blyrics-font-family);
+  text-align: center;
 }
 
 /* Treat the no-lyrics affordance as an expressive tonal button instead of a
@@ -140,8 +171,6 @@
   transform: translateY(0) scale(0.98);
 }
 
-/* Error/empty copy inherits the M3 semantic hierarchy without overriding the
-   renderer's actual state management. */
 .blyrics-error,
 .blyrics-no-lyrics {
   color: var(--m3-on-surface-variant);
