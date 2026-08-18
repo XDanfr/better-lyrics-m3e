@@ -1,5 +1,622 @@
-@import url("https://raw.githubusercontent.com/XDanfr/better-lyrics-m3e/main/src/tokens.css");
-@import url("https://raw.githubusercontent.com/XDanfr/better-lyrics-m3e/main/src/lyrics.css");
-@import url("https://raw.githubusercontent.com/XDanfr/better-lyrics-m3e/main/src/components.css");
-@import url("https://raw.githubusercontent.com/XDanfr/better-lyrics-m3e/main/src/motion.css");
-@import url("https://raw.githubusercontent.com/XDanfr/better-lyrics-m3e/main/src/responsive.css");
+/*
+ * Better Lyrics M3E
+ *
+ * Standalone Material 3 Expressive-inspired theme for Better Lyrics.
+ * This file is the canonical distributable stylesheet. It intentionally contains
+ * the complete theme so Better Lyrics' standalone editor does not need to
+ * resolve local @import paths.
+ */
+
+/* ========================================================================== */
+/* M3E TOKENS                                                                 */
+/* ========================================================================== */
+
+:root {
+  --m3-primary: #d0bcff;
+  --m3-on-primary: #381e72;
+  --m3-primary-container: #4f378b;
+  --m3-on-primary-container: #e9ddff;
+  --m3-primary-fixed: #eaddff;
+  --m3-primary-fixed-dim: #d0bcff;
+  --m3-on-primary-fixed: #21005d;
+  --m3-on-primary-fixed-variant: #4f378b;
+
+  --m3-secondary: #cbc2db;
+  --m3-on-secondary: #332d3d;
+  --m3-secondary-container: #4a4454;
+  --m3-on-secondary-container: #e8def8;
+  --m3-secondary-fixed: #e8def8;
+  --m3-secondary-fixed-dim: #cbc2db;
+  --m3-on-secondary-fixed: #1d192b;
+  --m3-on-secondary-fixed-variant: #4a4454;
+
+  --m3-tertiary: #efb8c8;
+  --m3-on-tertiary: #492532;
+  --m3-tertiary-container: #633b48;
+  --m3-on-tertiary-container: #ffd9e3;
+  --m3-tertiary-fixed: #ffd8e4;
+  --m3-tertiary-fixed-dim: #efb8c8;
+  --m3-on-tertiary-fixed: #31111d;
+  --m3-on-tertiary-fixed-variant: #633b48;
+
+  --m3-error: #ffb4ab;
+  --m3-on-error: #690005;
+  --m3-error-container: #93000a;
+  --m3-on-error-container: #ffdad6;
+
+  --m3-background: #141218;
+  --m3-on-background: #e6e0e9;
+  --m3-surface: #141218;
+  --m3-surface-container-lowest: #0f0d13;
+  --m3-surface-container-low: #1d1b20;
+  --m3-surface-container: #211f26;
+  --m3-surface-container-high: #2b2930;
+  --m3-surface-container-highest: #36343b;
+  --m3-surface-dim: #141218;
+  --m3-surface-bright: #3a383f;
+  --m3-surface-variant: #49454f;
+  --m3-on-surface: #e6e0e9;
+  --m3-on-surface-variant: #cac4d0;
+
+  --m3-inverse-surface: #e6e0e9;
+  --m3-inverse-on-surface: #322f35;
+  --m3-inverse-primary: #6750a4;
+  --m3-outline: #938f99;
+  --m3-outline-variant: #49454f;
+  --m3-shadow: #000000;
+  --m3-scrim: #000000;
+
+  --m3-shape-none: 0;
+  --m3-shape-extra-small: 4px;
+  --m3-shape-small: 8px;
+  --m3-shape-medium: 12px;
+  --m3-shape-large: 16px;
+  --m3-shape-large-increased: 20px;
+  --m3-shape-extra-large: 28px;
+  --m3-shape-extra-large-increased: 32px;
+  --m3-shape-extra-extra-large: 48px;
+  --m3-shape-full: 9999px;
+
+  --m3-state-hover: 8%;
+  --m3-state-focus: 10%;
+  --m3-state-pressed: 10%;
+
+  --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --m3-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --m3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  --m3-motion-spring-fast-spatial: 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-default-spatial: 500ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-slow-spatial: 750ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1);
+  --m3-motion-spring-default-effects: 200ms cubic-bezier(0.34, 0.8, 0.34, 1);
+  --m3-motion-spring-slow-effects: 200ms cubic-bezier(0.34, 0.88, 0.34, 1);
+
+  --m3-motion-duration-short-1: 50ms;
+  --m3-motion-duration-short-2: 100ms;
+  --m3-motion-duration-short-3: 150ms;
+  --m3-motion-duration-short-4: 200ms;
+  --m3-motion-duration-medium-1: 250ms;
+  --m3-motion-duration-medium-2: 300ms;
+  --m3-motion-duration-medium-3: 350ms;
+  --m3-motion-duration-medium-4: 400ms;
+  --m3-motion-duration-long-1: 450ms;
+  --m3-motion-duration-long-2: 500ms;
+  --m3-motion-duration-long-3: 550ms;
+  --m3-motion-duration-long-4: 600ms;
+  --m3-motion-duration-extra-long-1: 700ms;
+  --m3-motion-duration-extra-long-2: 800ms;
+  --m3-motion-duration-extra-long-3: 900ms;
+  --m3-motion-duration-extra-long-4: 1000ms;
+
+  --m3-spacing-1: 4px;
+  --m3-spacing-2: 8px;
+  --m3-spacing-3: 12px;
+  --m3-spacing-4: 16px;
+  --m3-spacing-5: 20px;
+  --m3-spacing-6: 24px;
+  --m3-spacing-8: 32px;
+
+  --m3-elevation-level0: none;
+  --m3-elevation-level1: 0 1px 3px color-mix(in srgb, var(--m3-shadow) 20%, transparent);
+  --m3-elevation-level2: 0 2px 6px color-mix(in srgb, var(--m3-shadow) 22%, transparent);
+  --m3-elevation-level3: 0 4px 8px color-mix(in srgb, var(--m3-shadow) 24%, transparent);
+
+  --m3-type-body-large-size: 16px;
+  --m3-type-body-large-line-height: 24px;
+  --m3-type-body-large-weight: 400;
+  --m3-type-body-large-tracking: 0.5px;
+  --m3-type-body-medium-size: 14px;
+  --m3-type-body-medium-line-height: 20px;
+  --m3-type-body-medium-weight: 400;
+  --m3-type-body-medium-tracking: 0.25px;
+  --m3-type-label-large-size: 14px;
+  --m3-type-label-large-line-height: 20px;
+  --m3-type-label-large-weight: 500;
+  --m3-type-label-large-tracking: 0.1px;
+  --m3-type-title-medium-size: 16px;
+  --m3-type-title-medium-line-height: 24px;
+  --m3-type-title-medium-weight: 500;
+  --m3-type-title-medium-tracking: 0.15px;
+
+  --m3-lyric-size: 3rem;
+  --m3-lyric-line-height: 1.22;
+  --m3-lyric-weight: 700;
+  --m3-lyric-tracking: -0.02em;
+  --m3-lyric-translated-size: 1.75rem;
+  --m3-lyric-translated-line-height: 1.3;
+  --m3-lyric-translated-weight: 500;
+  --m3-lyric-translated-tracking: -0.01em;
+}
+
+:root {
+  --blyrics-text-color: var(--m3-on-surface);
+  --blyrics-highlight-color: color-mix(in srgb, var(--m3-primary) 75%, transparent);
+  --blyrics-active-opacity: 1;
+  --blyrics-inactive-opacity: 0.42;
+  --blyrics-translated-opacity: 0.68;
+  --blyrics-font-family: "Noto Sans", var(--noto-sans-universal), Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --blyrics-font-size: var(--m3-lyric-size);
+  --blyrics-font-weight: var(--m3-lyric-weight);
+  --blyrics-line-height: var(--m3-lyric-line-height);
+  --blyrics-translated-font-size: var(--m3-lyric-translated-size);
+  --blyrics-translated-font-weight: var(--m3-lyric-translated-weight);
+  --blyrics-translated-font-family: var(--blyrics-font-family);
+  --blyrics-translated-color: color-mix(in srgb, var(--m3-on-surface-variant) 68%, transparent);
+  --blyrics-padding: var(--m3-spacing-4);
+  --blyrics-margin: var(--m3-spacing-4);
+  --blyrics-border-radius: var(--m3-shape-large);
+  --blyrics-scale: 1;
+  --blyrics-active-scale: 1;
+  --blyrics-animate-line-scale: 0;
+  --blyrics-blur-amount: 24px;
+  --blyrics-background-blur: 72px;
+  --blyrics-background-saturate: 1.35;
+  --blyrics-footer-bg-color: color-mix(in srgb, var(--m3-surface-container) 88%, transparent);
+  --blyrics-footer-border-color: var(--m3-outline-variant);
+  --blyrics-footer-text-color: var(--m3-on-surface-variant);
+  --blyrics-footer-link-color: var(--m3-primary);
+  --blyrics-footer-font-family: var(--blyrics-font-family);
+}
+
+/* ========================================================================== */
+/* LYRIC PRESENTATION                                                         */
+/* ========================================================================== */
+
+.blyrics-container {
+  color: var(--m3-on-surface);
+  font-family: var(--blyrics-font-family);
+}
+
+.blyrics--line {
+  position: relative;
+  color: color-mix(in srgb, var(--m3-on-surface) 38%, transparent);
+  font-family: var(--blyrics-font-family);
+  font-size: var(--blyrics-font-size);
+  font-weight: var(--blyrics-font-weight);
+  line-height: var(--blyrics-line-height);
+  letter-spacing: var(--m3-lyric-tracking);
+  text-wrap: balance;
+  transition:
+    color var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard),
+    opacity var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard);
+}
+
+.blyrics--line.blyrics--active {
+  color: var(--m3-on-surface);
+  opacity: var(--blyrics-active-opacity);
+}
+
+.blyrics--line.blyrics--active .blyrics-line-main {
+  color: inherit;
+  text-shadow: 0 0 1.25rem color-mix(in srgb, var(--m3-primary) 16%, transparent);
+}
+
+.blyrics-line-main,
+.blyrics--word {
+  color: inherit;
+}
+
+.blyrics-word-highlight,
+.blyrics--active .blyrics--word-highlight {
+  color: var(--m3-primary);
+}
+
+.blyrics--translated,
+.blyrics--romanized {
+  color: var(--blyrics-translated-color);
+  font-family: var(--blyrics-translated-font-family);
+  font-size: var(--blyrics-translated-font-size);
+  font-weight: var(--blyrics-translated-font-weight);
+  line-height: var(--m3-lyric-translated-line-height);
+  letter-spacing: var(--m3-lyric-translated-tracking);
+}
+
+.blyrics-background-line {
+  color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent);
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.blyrics-background-lyric {
+  color: inherit;
+}
+
+.blyrics--instrumental {
+  color: var(--m3-tertiary);
+  font-weight: 600;
+}
+
+.blyrics--instrumental .blyrics--instrumental-icon {
+  color: var(--m3-tertiary);
+  filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--m3-tertiary) 22%, transparent));
+}
+
+.blyrics-bidi-sensitive,
+.blyrics-bidi-sensitive .blyrics-line-main {
+  text-wrap: balance;
+}
+
+/* ========================================================================== */
+/* M3E MOTION                                                                 */
+/* ========================================================================== */
+
+:root {
+  --blyrics-animate-line-scale: 1;
+  --blyrics-animate-word-wobble: 1;
+  --blyrics-animate-highlight-swipe: 1;
+  --blyrics-animate-highlight-glow: 1;
+  --blyrics-animate-highlight-fade: 1;
+  --blyrics-animate-scroll: 1;
+  --blyrics-animate-instrumental: 1;
+
+  --blyrics-scale: 0.975;
+  --blyrics-active-scale: 1.015;
+  --blyrics-scale-transition-duration: var(--m3-motion-duration-medium-2);
+  --blyrics-line-enter-transform-from: scale(var(--blyrics-scale));
+  --blyrics-line-enter-transform-to: scale(var(--blyrics-active-scale));
+  --blyrics-line-exit-transform-from: scale(var(--blyrics-active-scale));
+  --blyrics-line-exit-transform-to: scale(var(--blyrics-scale));
+  --blyrics-line-enter-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-line-exit-easing: var(--m3-motion-easing-emphasized-accelerate);
+
+  --blyrics-loader-transition-duration: var(--m3-motion-duration-long-2);
+  --blyrics-loader-transition-easing: var(--m3-motion-easing-emphasized-decelerate);
+
+  --blyrics-lyric-highlight-fade-in-duration: var(--m3-motion-duration-short-4);
+  --blyrics-lyric-highlight-fade-out-duration: var(--m3-motion-duration-medium-3);
+  --blyrics-lyric-highlight-fade-in-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized-accelerate);
+
+  --blyrics-highlight-swipe-easing: var(--m3-motion-easing-emphasized);
+  --blyrics-highlight-swipe-start-from: -0.24;
+  --blyrics-highlight-swipe-end-from: -0.08;
+  --blyrics-highlight-swipe-start-to: 1.38;
+  --blyrics-highlight-swipe-end-to: 1.52;
+  --blyrics-highlight-glow-radius-from: 0.9rem;
+  --blyrics-highlight-glow-radius-to: 0;
+  --blyrics-highlight-glow-duration-ratio: 1.15;
+  --blyrics-highlight-glow-min-duration: 900ms;
+  --blyrics-highlight-glow-easing: var(--m3-motion-easing-emphasized);
+
+  --blyrics-wobble-duration: var(--m3-motion-duration-long-2);
+  --blyrics-word-wobble-transform-from: translateY(0) scaleX(1);
+  --blyrics-word-wobble-transform-peak: translateY(-0.025em) scaleX(1.018);
+  --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1.006);
+  --blyrics-word-wobble-transform-to: translateY(0) scaleX(1);
+  --blyrics-word-wobble-peak-offset: 0.18;
+  --blyrics-word-wobble-settle-offset: 0.74;
+  --blyrics-word-wobble-easing: var(--m3-motion-easing-standard);
+  --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-word-wobble-end-easing: var(--m3-motion-easing-emphasized-accelerate);
+
+  --blyrics-instrumental-fill-fade-duration: var(--m3-motion-duration-short-4);
+  --blyrics-instrumental-fill-fade-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-instrumental-fill-transform-from: translateY(78%);
+  --blyrics-instrumental-fill-transform-to: translateY(-4%);
+  --blyrics-instrumental-fill-easing: var(--m3-motion-easing-standard);
+  --blyrics-instrumental-wave-transform-from: scaleY(1.2);
+  --blyrics-instrumental-wave-transform-to: scaleY(0.0001);
+  --blyrics-instrumental-wave-easing: var(--m3-motion-easing-emphasized-accelerate);
+  --blyrics-instrumental-wave-oscillation-duration: var(--m3-motion-duration-long-3);
+  --blyrics-instrumental-wave-oscillation-easing: var(--m3-motion-easing-emphasized);
+
+  --blyrics-lyric-scroll-duration: var(--m3-motion-duration-long-2);
+  --blyrics-lyric-scroll-timing-function: cubic-bezier(0.27, 1.06, 0.18, 1);
+  --blyrics-line-scroll-duration: var(--blyrics-lyric-scroll-duration);
+  --blyrics-line-scroll-timing-function: var(--blyrics-lyric-scroll-timing-function);
+  --blyrics-line-scroll-start-easing: var(--blyrics-line-scroll-timing-function);
+  --blyrics-line-scroll-end-easing: cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+/*
+  Better Lyrics parses these as theme knobs and resolves them on each visible
+  line before creating its WAAPI scroll animation.
+
+  blyrics-line-scroll-translate-y-start = var(--blyrics-line-scroll-delta-px);
+  blyrics-line-scroll-translate-y-end = 0px;
+  blyrics-line-scroll-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+  blyrics-line-scroll-end-easing = cubic-bezier(0.2, 0, 0, 1);
+  blyrics-line-scroll-below-duration = calc(
+    500ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1, 2.71828) * 90ms +
+      var(--blyrics-line-scroll-abs-relative-index) * 22ms
+  );
+  blyrics-line-scroll-above-duration = calc(
+    500ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1) * 18ms
+  );
+  blyrics-line-scroll-below-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+  blyrics-line-scroll-above-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+*/
+
+/* ========================================================================== */
+/* COMPONENTS + STATE                                                       */
+/* ========================================================================== */
+
+.blyrics-footer {
+  background: var(--blyrics-footer-bg-color);
+  border: 1px solid var(--blyrics-footer-border-color);
+  border-radius: var(--m3-shape-large);
+  color: var(--blyrics-footer-text-color);
+  box-shadow: var(--m3-elevation-level2);
+  backdrop-filter: blur(var(--blyrics-blur-amount));
+  -webkit-backdrop-filter: blur(var(--blyrics-blur-amount));
+}
+
+.blyrics-footer a {
+  color: var(--blyrics-footer-link-color);
+}
+
+.blyrics-container [active],
+.blyrics-container button,
+.blyrics-container [role="button"] {
+  border-radius: var(--m3-shape-full);
+}
+
+.blyrics-container button:hover,
+.blyrics-container [role="button"]:hover {
+  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
+}
+
+.blyrics-container button:focus-visible,
+.blyrics-container [role="button"]:focus-visible {
+  outline: 2px solid var(--m3-primary);
+  outline-offset: 2px;
+}
+
+#blyrics-loader {
+  gap: var(--m3-spacing-4);
+  transition:
+    opacity var(--blyrics-loader-transition-duration, 0.6s) var(--blyrics-loader-transition-easing, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform var(--blyrics-loader-transition-duration, 0.6s) var(--blyrics-loader-transition-easing, cubic-bezier(0.22, 1, 0.36, 1)),
+    visibility var(--blyrics-loader-transition-duration, 0.6s);
+}
+
+#blyrics-loader::before,
+#blyrics-loader::after {
+  box-sizing: border-box;
+}
+
+#blyrics-loader::before {
+  content: "";
+  display: block;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--m3-shape-extra-large);
+  background: var(--m3-primary-container);
+  box-shadow: var(--m3-elevation-level2);
+  border: 1px solid color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  flex-shrink: 0;
+  animation: m3e-loader-breathe 1.8s infinite var(--m3-motion-easing-emphasized);
+}
+
+#blyrics-loader:not([state="showing-message"]):not([state="exiting-message"])::before {
+  background:
+    radial-gradient(circle at 30% 30%, var(--m3-primary) 0 10%, transparent 11%),
+    conic-gradient(from 90deg, transparent 0 18%, var(--m3-primary) 18% 46%, transparent 46% 68%, var(--m3-tertiary) 68% 82%, transparent 82% 100%),
+    var(--m3-primary-container);
+  animation:
+    m3e-loader-orbit 1.35s infinite var(--m3-motion-easing-emphasized),
+    m3e-loader-breathe 1.8s infinite var(--m3-motion-easing-emphasized);
+}
+
+#blyrics-loader::after {
+  content: var(--blyrics-loader-text, "");
+  display: block;
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  font-weight: var(--m3-type-title-medium-weight);
+  line-height: var(--m3-type-title-medium-line-height);
+  color: var(--m3-on-surface);
+  -webkit-text-fill-color: initial;
+  background: none;
+  animation: none;
+}
+
+#blyrics-loader:not([state="showing-message"]):not([state="exiting-message"])::after {
+  background: linear-gradient(100deg, var(--m3-on-surface-variant), var(--m3-primary), var(--m3-on-surface-variant));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: m3e-loader-text 2.8s infinite var(--m3-motion-easing-standard);
+}
+
+#blyrics-loader[state="showing-message"],
+#blyrics-loader[state="exiting-message"] {
+  gap: var(--m3-spacing-4);
+}
+
+#blyrics-loader[state="showing-message"]::before,
+#blyrics-loader[state="exiting-message"]::before {
+  animation: none;
+  background: var(--m3-surface-container-high);
+  border-color: var(--m3-outline-variant);
+}
+
+#blyrics-loader[state="showing-message"]::after,
+#blyrics-loader[state="exiting-message"]::after {
+  color: var(--m3-on-surface);
+  -webkit-text-fill-color: var(--m3-on-surface);
+}
+
+#tab-renderer > ytmusic-message-renderer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 12rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: var(--m3-on-surface);
+}
+
+#tab-renderer > ytmusic-message-renderer > yt-formatted-string.text.style-scope.ytmusic-message-renderer {
+  display: block;
+  width: min(34rem, 100%);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-shape-extra-large);
+  background: color-mix(in srgb, var(--m3-surface-container) 94%, transparent);
+  box-shadow: var(--m3-elevation-level1);
+  color: var(--m3-on-surface-variant);
+  font: var(--m3-type-body-large-weight) var(--m3-type-body-large-size)/var(--m3-type-body-large-line-height) var(--blyrics-font-family);
+  text-align: center;
+}
+
+.blyrics-no-lyrics-button-container {
+  align-items: center;
+  gap: var(--m3-spacing-3);
+  opacity: 1;
+  padding: var(--m3-spacing-2) 0;
+}
+
+.blyrics-no-lyrics-button-container button,
+.blyrics-no-lyrics-button-container [role="button"] {
+  min-height: 2.75rem;
+  padding: 0.65rem var(--m3-spacing-5);
+  border: 1px solid color-mix(in srgb, var(--m3-outline) 55%, transparent);
+  border-radius: var(--m3-shape-large-increased);
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  box-shadow: var(--m3-elevation-level1);
+  transition:
+    transform var(--m3-motion-duration-short-3) var(--m3-motion-easing-emphasized),
+    background-color var(--m3-motion-duration-short-2) var(--m3-motion-easing-standard),
+    box-shadow var(--m3-motion-duration-short-2) var(--m3-motion-easing-standard);
+}
+
+.blyrics-no-lyrics-button-container button:hover,
+.blyrics-no-lyrics-button-container [role="button"]:hover {
+  transform: translateY(-1px);
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  box-shadow: var(--m3-elevation-level2);
+}
+
+.blyrics-no-lyrics-button-container button:active,
+.blyrics-no-lyrics-button-container [role="button"]:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.blyrics-error,
+.blyrics-no-lyrics {
+  color: var(--m3-on-surface-variant);
+}
+
+@keyframes m3e-loader-orbit {
+  0% { transform: rotate(0deg) scale(0.96); }
+  45% { transform: rotate(160deg) scale(1.04); }
+  75% { transform: rotate(285deg) scale(0.99); }
+  100% { transform: rotate(360deg) scale(0.96); }
+}
+
+@keyframes m3e-loader-breathe {
+  0%, 100% { filter: saturate(0.9); }
+  50% { filter: saturate(1.16); }
+}
+
+@keyframes m3e-loader-text {
+  0%, 100% { background-position: 150% 0; }
+  50% { background-position: -50% 0; }
+}
+
+/* ========================================================================== */
+/* RESPONSIVE                                                                 */
+/* ========================================================================== */
+
+@media (max-width: 936px) {
+  :root {
+    --blyrics-padding: var(--m3-spacing-3);
+    --blyrics-margin: var(--m3-spacing-3);
+  }
+}
+
+@media (max-width: 615px) {
+  :root {
+    --blyrics-padding: var(--m3-spacing-2);
+    --blyrics-margin: var(--m3-spacing-2);
+    --blyrics-border-radius: var(--m3-shape-medium);
+  }
+
+  .blyrics--line {
+    letter-spacing: -0.01em;
+  }
+
+  .blyrics--translated,
+  .blyrics--romanized {
+    font-size: 1.5rem;
+  }
+
+  .blyrics-footer {
+    border-radius: var(--m3-shape-medium);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --m3-motion-duration-short-1: 1ms;
+    --m3-motion-duration-short-2: 1ms;
+    --m3-motion-duration-short-3: 1ms;
+    --m3-motion-duration-short-4: 1ms;
+    --m3-motion-duration-medium-1: 1ms;
+    --m3-motion-duration-medium-2: 1ms;
+    --m3-motion-duration-medium-3: 1ms;
+    --m3-motion-duration-medium-4: 1ms;
+    --m3-motion-duration-long-1: 1ms;
+    --m3-motion-duration-long-2: 1ms;
+    --m3-motion-duration-long-3: 1ms;
+    --m3-motion-duration-long-4: 1ms;
+    --m3-motion-duration-extra-long-1: 1ms;
+    --m3-motion-duration-extra-long-2: 1ms;
+    --m3-motion-duration-extra-long-3: 1ms;
+    --m3-motion-duration-extra-long-4: 1ms;
+    --blyrics-animate-line-scale: 0;
+    --blyrics-animate-word-wobble: 0;
+    --blyrics-animate-highlight-swipe: 1;
+    --blyrics-animate-highlight-glow: 1;
+    --blyrics-animate-highlight-fade: 1;
+    --blyrics-animate-scroll: 1;
+    --blyrics-animate-instrumental: 0;
+    --blyrics-scale: 1;
+    --blyrics-active-scale: 1;
+    --blyrics-wobble-duration: 1ms;
+    --blyrics-lyric-scroll-duration: 1ms;
+    --blyrics-line-scroll-duration: 1ms;
+
+    #blyrics-loader::before,
+    #blyrics-loader::after,
+    #blyrics-loader:not([state="showing-message"]):not([state="exiting-message"])::after {
+      animation: none !important;
+    }
+
+    .blyrics-no-lyrics-button-container button,
+    .blyrics-no-lyrics-button-container [role="button"] {
+      transition: background-color var(--m3-motion-duration-short-2) linear, box-shadow var(--m3-motion-duration-short-2) linear;
+    }
+  }
+}
