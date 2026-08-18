@@ -1,0 +1,13 @@
+/*
+ * Better Lyrics M3E
+ *
+ * Standalone Material 3 Expressive-inspired theme for Better Lyrics.
+ * M3E is used as a design-system reference; its Web Components are not
+ * required by this theme.
+ */
+
+@import url("./src/tokens.css");
+@import url("./src/lyrics.css");
+@import url("./src/components.css");
+@import url("./src/motion.css");
+@import url("./src/responsive.css");
