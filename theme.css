@@ -39,9 +39,13 @@
   --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized-accelerate);
 
   --blyrics-highlight-swipe-easing: var(--m3-motion-easing-emphasized);
-  --blyrics-highlight-glow-radius-from: 1rem;
+  --blyrics-highlight-swipe-start-from: -0.24;
+  --blyrics-highlight-swipe-end-from: -0.08;
+  --blyrics-highlight-swipe-start-to: 1.38;
+  --blyrics-highlight-swipe-end-to: 1.52;
+  --blyrics-highlight-glow-radius-from: 0.9rem;
   --blyrics-highlight-glow-radius-to: 0;
-  --blyrics-highlight-glow-duration-ratio: 1.2;
+  --blyrics-highlight-glow-duration-ratio: 1.15;
   --blyrics-highlight-glow-min-duration: 900ms;
   --blyrics-highlight-glow-easing: var(--m3-motion-easing-emphasized);
 
@@ -51,7 +55,7 @@
   --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1.006);
   --blyrics-word-wobble-transform-to: translateY(0) scaleX(1);
   --blyrics-word-wobble-peak-offset: 0.18;
-  --blyrics-word-wobble-settle-offset: 0.72;
+  --blyrics-word-wobble-settle-offset: 0.74;
   --blyrics-word-wobble-easing: var(--m3-motion-easing-standard);
   --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
   --blyrics-word-wobble-end-easing: var(--m3-motion-easing-emphasized-accelerate);
@@ -69,7 +73,7 @@
 
   --blyrics-lyric-scroll-duration: 500ms;
   --blyrics-lyric-scroll-timing-function: cubic-bezier(0.27, 1.06, 0.18, 1);
-  --blyrics-line-scroll-duration: 700ms;
+  --blyrics-line-scroll-duration: 500ms;
   --blyrics-line-scroll-timing-function: var(--blyrics-lyric-scroll-timing-function);
 }
 
@@ -82,11 +86,11 @@
   blyrics-line-scroll-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
   blyrics-line-scroll-end-easing = cubic-bezier(0.2, 0, 0, 1);
   blyrics-line-scroll-below-duration = calc(
-    650ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1, 2.71828) * 110ms +
-      var(--blyrics-line-scroll-abs-relative-index) * 24ms
+    500ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1, 2.71828) * 90ms +
+      var(--blyrics-line-scroll-abs-relative-index) * 22ms
   );
   blyrics-line-scroll-above-duration = calc(
-    600ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1) * 18ms
+    500ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1) * 18ms
   );
   blyrics-line-scroll-below-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
   blyrics-line-scroll-above-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
