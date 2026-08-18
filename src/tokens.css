@@ -1,20 +1,32 @@
 :root {
-  /* M3 Expressive semantic colour roles. Initial values are deliberately
-     neutral so the palette can be tuned independently of component rules. */
+  /* M3 Expressive semantic colour roles. The initial palette is a dark
+     baseline suited to YouTube Music's usual presentation. */
   --m3-primary: #d0bcff;
   --m3-on-primary: #381e72;
   --m3-primary-container: #4f378b;
   --m3-on-primary-container: #e9ddff;
+  --m3-primary-fixed: #eaddff;
+  --m3-primary-fixed-dim: #d0bcff;
+  --m3-on-primary-fixed: #21005d;
+  --m3-on-primary-fixed-variant: #4f378b;
 
   --m3-secondary: #cbc2db;
   --m3-on-secondary: #332d3d;
   --m3-secondary-container: #4a4454;
   --m3-on-secondary-container: #e8def8;
+  --m3-secondary-fixed: #e8def8;
+  --m3-secondary-fixed-dim: #cbc2db;
+  --m3-on-secondary-fixed: #1d192b;
+  --m3-on-secondary-fixed-variant: #4a4454;
 
   --m3-tertiary: #efb8c8;
   --m3-on-tertiary: #492532;
   --m3-tertiary-container: #633b48;
   --m3-on-tertiary-container: #ffd9e3;
+  --m3-tertiary-fixed: #ffd8e4;
+  --m3-tertiary-fixed-dim: #efb8c8;
+  --m3-on-tertiary-fixed: #31111d;
+  --m3-on-tertiary-fixed-variant: #633b48;
 
   --m3-error: #ffb4ab;
   --m3-on-error: #690005;
@@ -24,34 +36,78 @@
   --m3-background: #141218;
   --m3-on-background: #e6e0e9;
   --m3-surface: #141218;
+  --m3-surface-container-lowest: #0f0d13;
+  --m3-surface-container-low: #1d1b20;
   --m3-surface-container: #211f26;
   --m3-surface-container-high: #2b2930;
   --m3-surface-container-highest: #36343b;
+  --m3-surface-dim: #141218;
+  --m3-surface-bright: #3a383f;
+  --m3-surface-variant: #49454f;
   --m3-on-surface: #e6e0e9;
   --m3-on-surface-variant: #cac4d0;
+
+  --m3-inverse-surface: #e6e0e9;
+  --m3-inverse-on-surface: #322f35;
+  --m3-inverse-primary: #6750a4;
   --m3-outline: #938f99;
   --m3-outline-variant: #49454f;
+  --m3-shadow: #000000;
+  --m3-scrim: #000000;
 
-  /* Shape vocabulary. Expressive does not mean every element has to be a
-     pill, so the base theme keeps a range of usable radii. */
+  /* M3 shape corner vocabulary. Expressive uses varied shapes rather than
+     making every surface a pill. */
+  --m3-shape-none: 0;
   --m3-shape-extra-small: 4px;
   --m3-shape-small: 8px;
   --m3-shape-medium: 12px;
   --m3-shape-large: 16px;
+  --m3-shape-large-increased: 20px;
   --m3-shape-extra-large: 28px;
+  --m3-shape-extra-large-increased: 32px;
+  --m3-shape-extra-extra-large: 48px;
   --m3-shape-full: 9999px;
 
-  /* Motion vocabulary. These are intentionally centralised so lyric and UI
-     animations can share one motion language. */
-  --m3-motion-duration-short: 150ms;
-  --m3-motion-duration-medium: 300ms;
-  --m3-motion-duration-long: 500ms;
-  --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-  --m3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
-  --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
-  --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  /* M3 state-layer opacities. */
+  --m3-state-hover: 8%;
+  --m3-state-focus: 10%;
+  --m3-state-pressed: 10%;
 
-  /* Density / spacing vocabulary. */
+  /* M3 motion easing. These values mirror the M3E token defaults. */
+  --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --m3-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --m3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  /* M3E expressive spatial/effects springs. */
+  --m3-motion-spring-fast-spatial: 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-default-spatial: 500ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-slow-spatial: 750ms cubic-bezier(0.27, 1.06, 0.18, 1);
+  --m3-motion-spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1);
+  --m3-motion-spring-default-effects: 200ms cubic-bezier(0.34, 0.8, 0.34, 1);
+  --m3-motion-spring-slow-effects: 200ms cubic-bezier(0.34, 0.88, 0.34, 1);
+
+  /* M3E duration scale. */
+  --m3-motion-duration-short-1: 50ms;
+  --m3-motion-duration-short-2: 100ms;
+  --m3-motion-duration-short-3: 150ms;
+  --m3-motion-duration-short-4: 200ms;
+  --m3-motion-duration-medium-1: 250ms;
+  --m3-motion-duration-medium-2: 300ms;
+  --m3-motion-duration-medium-3: 350ms;
+  --m3-motion-duration-medium-4: 400ms;
+  --m3-motion-duration-long-1: 450ms;
+  --m3-motion-duration-long-2: 500ms;
+  --m3-motion-duration-long-3: 550ms;
+  --m3-motion-duration-long-4: 600ms;
+  --m3-motion-duration-extra-long-1: 700ms;
+  --m3-motion-duration-extra-long-2: 800ms;
+  --m3-motion-duration-extra-long-3: 900ms;
+  --m3-motion-duration-extra-long-4: 1000ms;
+
+  /* Compact spacing vocabulary. */
   --m3-spacing-1: 4px;
   --m3-spacing-2: 8px;
   --m3-spacing-3: 12px;
@@ -59,11 +115,37 @@
   --m3-spacing-5: 20px;
   --m3-spacing-6: 24px;
   --m3-spacing-8: 32px;
+
+  /* Elevation anchors. Better Lyrics does not use M3 elevation directly yet,
+     but keeping the roles here lets UI surfaces adopt them consistently. */
+  --m3-elevation-level0: none;
+  --m3-elevation-level1: 0 1px 3px color-mix(in srgb, var(--m3-shadow) 20%, transparent);
+  --m3-elevation-level2: 0 2px 6px color-mix(in srgb, var(--m3-shadow) 22%, transparent);
+  --m3-elevation-level3: 0 4px 8px color-mix(in srgb, var(--m3-shadow) 24%, transparent);
+
+  /* Selected M3 type roles used by the theme. M3E exposes the broader 30-role
+     standard/emphasized typescale, but Better Lyrics primarily needs these. */
+  --m3-type-body-large-size: 16px;
+  --m3-type-body-large-line-height: 24px;
+  --m3-type-body-large-weight: 400;
+  --m3-type-body-large-tracking: 0.5px;
+  --m3-type-body-medium-size: 14px;
+  --m3-type-body-medium-line-height: 20px;
+  --m3-type-body-medium-weight: 400;
+  --m3-type-body-medium-tracking: 0.25px;
+  --m3-type-label-large-size: 14px;
+  --m3-type-label-large-line-height: 20px;
+  --m3-type-label-large-weight: 500;
+  --m3-type-label-large-tracking: 0.1px;
+  --m3-type-title-medium-size: 16px;
+  --m3-type-title-medium-line-height: 24px;
+  --m3-type-title-medium-weight: 500;
+  --m3-type-title-medium-tracking: 0.15px;
 }
 
 :root {
-  /* Better Lyrics semantic mapping. Keep these overrides in one place so
-     future renderer changes are easier to accommodate. */
+  /* Better Lyrics semantic mapping. This boundary keeps renderer-specific
+     variables out of the design-token layer above. */
   --blyrics-text-color: var(--m3-on-surface);
   --blyrics-highlight-color: color-mix(in srgb, var(--m3-primary) 75%, transparent);
   --blyrics-active-opacity: 1;
@@ -72,6 +154,7 @@
 
   --blyrics-font-family: "Noto Sans", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --blyrics-font-weight: 700;
+  --blyrics-translated-font-family: var(--blyrics-font-family);
   --blyrics-translated-font-weight: 500;
 
   --blyrics-padding: var(--m3-spacing-4);
