@@ -52,3 +52,7 @@ The Better Lyrics styling documentation remains the source of truth for supporte
 ## License
 
 MIT
+
+## FYI
+
+This repo is almost entirely vibe-coded for the sake of convenience. I did next to nothing on this, except for a tiny bit of bug fixing. I just wanted something quick that looked good.
