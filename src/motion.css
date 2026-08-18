@@ -1,0 +1,37 @@
+:root {
+  --blyrics-loader-transition-duration: var(--m3-motion-duration-long);
+  --blyrics-loader-transition-easing: var(--m3-motion-easing-emphasized-decelerate);
+
+  --blyrics-scale-transition-duration: var(--m3-motion-duration-short);
+  --blyrics-line-enter-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-line-exit-easing: var(--m3-motion-easing-emphasized-accelerate);
+
+  --blyrics-lyric-highlight-fade-in-duration: var(--m3-motion-duration-short);
+  --blyrics-lyric-highlight-fade-out-duration: var(--m3-motion-duration-medium);
+  --blyrics-lyric-highlight-fade-in-easing: var(--m3-motion-easing-standard);
+  --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized);
+
+  --blyrics-highlight-swipe-easing: linear;
+  --blyrics-highlight-glow-radius-from: 0.9rem;
+  --blyrics-highlight-glow-radius-to: 0;
+  --blyrics-highlight-glow-duration-ratio: 1.15;
+  --blyrics-highlight-glow-min-duration: 1s;
+  --blyrics-highlight-glow-easing: var(--m3-motion-easing-emphasized);
+
+  --blyrics-wobble-duration: 800ms;
+  --blyrics-word-wobble-transform-from: scaleX(1);
+  --blyrics-word-wobble-transform-peak: translateY(-0.025em) scaleX(1.018);
+  --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1);
+  --blyrics-word-wobble-transform-to: scaleX(1);
+  --blyrics-word-wobble-peak-offset: 0.16;
+  --blyrics-word-wobble-settle-offset: 0.72;
+  --blyrics-word-wobble-easing: var(--m3-motion-easing-standard);
+  --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-word-wobble-end-easing: var(--m3-motion-easing-emphasized-accelerate);
+
+  --blyrics-instrumental-fill-fade-duration: var(--m3-motion-duration-short);
+  --blyrics-instrumental-fill-fade-easing: var(--m3-motion-easing-standard);
+
+  --blyrics-lyric-scroll-duration: 600ms;
+  --blyrics-lyric-scroll-timing-function: var(--m3-motion-easing-emphasized);
+}
