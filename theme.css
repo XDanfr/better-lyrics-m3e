@@ -8,8 +8,6 @@
 
 /* ===== tokens.css ===== */
 :root {
-  /* M3 Expressive semantic colour roles. The initial palette is a dark
-     baseline suited to YouTube Music's usual presentation. */
   --m3-primary: #d0bcff;
   --m3-on-primary: #381e72;
   --m3-primary-container: #4f378b;
@@ -18,7 +16,6 @@
   --m3-primary-fixed-dim: #d0bcff;
   --m3-on-primary-fixed: #21005d;
   --m3-on-primary-fixed-variant: #4f378b;
-
   --m3-secondary: #cbc2db;
   --m3-on-secondary: #332d3d;
   --m3-secondary-container: #4a4454;
@@ -27,7 +24,6 @@
   --m3-secondary-fixed-dim: #cbc2db;
   --m3-on-secondary-fixed: #1d192b;
   --m3-on-secondary-fixed-variant: #4a4454;
-
   --m3-tertiary: #efb8c8;
   --m3-on-tertiary: #492532;
   --m3-tertiary-container: #633b48;
@@ -36,12 +32,10 @@
   --m3-tertiary-fixed-dim: #efb8c8;
   --m3-on-tertiary-fixed: #31111d;
   --m3-on-tertiary-fixed-variant: #633b48;
-
   --m3-error: #ffb4ab;
   --m3-on-error: #690005;
   --m3-error-container: #93000a;
   --m3-on-error-container: #ffdad6;
-
   --m3-background: #141218;
   --m3-on-background: #e6e0e9;
   --m3-surface: #141218;
@@ -55,7 +49,6 @@
   --m3-surface-variant: #49454f;
   --m3-on-surface: #e6e0e9;
   --m3-on-surface-variant: #cac4d0;
-
   --m3-inverse-surface: #e6e0e9;
   --m3-inverse-on-surface: #322f35;
   --m3-inverse-primary: #6750a4;
@@ -63,7 +56,6 @@
   --m3-outline-variant: #49454f;
   --m3-shadow: #000000;
   --m3-scrim: #000000;
-
   --m3-shape-none: 0;
   --m3-shape-extra-small: 4px;
   --m3-shape-small: 8px;
@@ -74,25 +66,21 @@
   --m3-shape-extra-large-increased: 32px;
   --m3-shape-extra-extra-large: 48px;
   --m3-shape-full: 9999px;
-
   --m3-state-hover: 8%;
   --m3-state-focus: 10%;
   --m3-state-pressed: 10%;
-
   --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --m3-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
   --m3-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
   --m3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
   --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
-
   --m3-motion-spring-fast-spatial: 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
   --m3-motion-spring-default-spatial: 500ms cubic-bezier(0.27, 1.06, 0.18, 1);
   --m3-motion-spring-slow-spatial: 750ms cubic-bezier(0.27, 1.06, 0.18, 1);
   --m3-motion-spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1);
   --m3-motion-spring-default-effects: 200ms cubic-bezier(0.34, 0.8, 0.34, 1);
   --m3-motion-spring-slow-effects: 200ms cubic-bezier(0.34, 0.88, 0.34, 1);
-
   --m3-motion-duration-short-1: 50ms;
   --m3-motion-duration-short-2: 100ms;
   --m3-motion-duration-short-3: 150ms;
@@ -109,7 +97,6 @@
   --m3-motion-duration-extra-long-2: 800ms;
   --m3-motion-duration-extra-long-3: 900ms;
   --m3-motion-duration-extra-long-4: 1000ms;
-
   --m3-spacing-1: 4px;
   --m3-spacing-2: 8px;
   --m3-spacing-3: 12px;
@@ -117,12 +104,10 @@
   --m3-spacing-5: 20px;
   --m3-spacing-6: 24px;
   --m3-spacing-8: 32px;
-
   --m3-elevation-level0: none;
   --m3-elevation-level1: 0 1px 3px color-mix(in srgb, var(--m3-shadow) 20%, transparent);
   --m3-elevation-level2: 0 2px 6px color-mix(in srgb, var(--m3-shadow) 22%, transparent);
   --m3-elevation-level3: 0 4px 8px color-mix(in srgb, var(--m3-shadow) 24%, transparent);
-
   --m3-type-body-large-size: 16px;
   --m3-type-body-large-line-height: 24px;
   --m3-type-body-large-weight: 400;
@@ -139,7 +124,6 @@
   --m3-type-title-medium-line-height: 24px;
   --m3-type-title-medium-weight: 500;
   --m3-type-title-medium-tracking: 0.15px;
-
   --m3-lyric-size: 3rem;
   --m3-lyric-line-height: 1.22;
   --m3-lyric-weight: 700;
@@ -167,8 +151,9 @@
   --blyrics-padding: var(--m3-spacing-4);
   --blyrics-margin: var(--m3-spacing-4);
   --blyrics-border-radius: var(--m3-shape-large);
-  --blyrics-scale: 0.96;
+  --blyrics-scale: 1;
   --blyrics-active-scale: 1;
+  --blyrics-animate-line-scale: 0;
   --blyrics-blur-amount: 24px;
   --blyrics-background-blur: 72px;
   --blyrics-background-saturate: 1.35;
@@ -180,11 +165,7 @@
 }
 
 /* ===== lyrics.css ===== */
-.blyrics-container {
-  color: var(--m3-on-surface);
-  font-family: var(--blyrics-font-family);
-}
-
+.blyrics-container { color: var(--m3-on-surface); font-family: var(--blyrics-font-family); }
 .blyrics--line {
   position: relative;
   color: color-mix(in srgb, var(--m3-on-surface) 38%, transparent);
@@ -194,36 +175,13 @@
   line-height: var(--blyrics-line-height);
   letter-spacing: var(--m3-lyric-tracking);
   text-wrap: balance;
-  transition:
-    color var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard),
-    opacity var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard);
+  transition: color var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard), opacity var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard);
 }
-
-.blyrics--line.blyrics--active {
-  color: var(--m3-on-surface);
-  opacity: var(--blyrics-active-opacity);
-}
-
-.blyrics--line.blyrics--active .blyrics-line-main {
-  color: inherit;
-  text-shadow: 0 0 1.25rem color-mix(in srgb, var(--m3-primary) 16%, transparent);
-}
-
-.blyrics-line-main {
-  color: inherit;
-}
-
-.blyrics--word {
-  color: inherit;
-}
-
-.blyrics-word-highlight,
-.blyrics--active .blyrics--word-highlight {
-  color: var(--m3-primary);
-}
-
-.blyrics--translated,
-.blyrics--romanized {
+.blyrics--line.blyrics--active { color: var(--m3-on-surface); opacity: var(--blyrics-active-opacity); }
+.blyrics--line.blyrics--active .blyrics-line-main { color: inherit; text-shadow: 0 0 1.25rem color-mix(in srgb, var(--m3-primary) 16%, transparent); }
+.blyrics-line-main, .blyrics--word { color: inherit; }
+.blyrics-word-highlight, .blyrics--active .blyrics--word-highlight { color: var(--m3-primary); }
+.blyrics--translated, .blyrics--romanized {
   color: var(--blyrics-translated-color);
   font-family: var(--blyrics-translated-font-family);
   font-size: var(--blyrics-translated-font-size);
@@ -231,75 +189,18 @@
   line-height: var(--m3-lyric-translated-line-height);
   letter-spacing: var(--m3-lyric-translated-tracking);
 }
-
-.blyrics-background-line {
-  color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent);
-  font-size: 0.82em;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-}
-
-.blyrics-background-lyric {
-  color: inherit;
-}
-
-.blyrics--instrumental {
-  color: var(--m3-tertiary);
-  font-weight: 600;
-}
-
-.blyrics--instrumental .blyrics--instrumental-icon {
-  color: var(--m3-tertiary);
-  filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--m3-tertiary) 22%, transparent));
-}
-
-.blyrics-bidi-sensitive,
-.blyrics-bidi-sensitive .blyrics-line-main {
-  text-wrap: balance;
-}
-
-@media (max-width: 615px) {
-  .blyrics--line {
-    letter-spacing: -0.01em;
-  }
-
-  .blyrics--translated,
-  .blyrics--romanized {
-    font-size: 1.5rem;
-  }
-}
+.blyrics-background-line { color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent); font-size: 0.82em; font-weight: 500; letter-spacing: -0.01em; }
+.blyrics-background-lyric { color: inherit; }
+.blyrics--instrumental { color: var(--m3-tertiary); font-weight: 600; }
+.blyrics--instrumental .blyrics--instrumental-icon { color: var(--m3-tertiary); filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--m3-tertiary) 22%, transparent)); }
+.blyrics-bidi-sensitive, .blyrics-bidi-sensitive .blyrics-line-main { text-wrap: balance; }
 
 /* ===== components.css ===== */
-.blyrics-footer {
-  background: var(--blyrics-footer-bg-color);
-  border: 1px solid var(--blyrics-footer-border-color);
-  border-radius: var(--m3-shape-large);
-  color: var(--blyrics-footer-text-color);
-  box-shadow: 0 0.75rem 2rem color-mix(in srgb, #000 18%, transparent);
-  backdrop-filter: blur(var(--blyrics-blur-amount));
-  -webkit-backdrop-filter: blur(var(--blyrics-blur-amount));
-}
-
-.blyrics-footer a {
-  color: var(--blyrics-footer-link-color);
-}
-
-.blyrics-container [active],
-.blyrics-container button,
-.blyrics-container [role="button"] {
-  border-radius: var(--m3-shape-full);
-}
-
-.blyrics-container button:hover,
-.blyrics-container [role="button"]:hover {
-  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
-}
-
-.blyrics-container button:focus-visible,
-.blyrics-container [role="button"]:focus-visible {
-  outline: 2px solid var(--m3-primary);
-  outline-offset: 2px;
-}
+.blyrics-footer { background: var(--blyrics-footer-bg-color); border: 1px solid var(--blyrics-footer-border-color); border-radius: var(--m3-shape-large); color: var(--blyrics-footer-text-color); box-shadow: 0 0.75rem 2rem color-mix(in srgb, #000 18%, transparent); backdrop-filter: blur(var(--blyrics-blur-amount)); -webkit-backdrop-filter: blur(var(--blyrics-blur-amount)); }
+.blyrics-footer a { color: var(--blyrics-footer-link-color); }
+.blyrics-container [active], .blyrics-container button, .blyrics-container [role="button"] { border-radius: var(--m3-shape-full); }
+.blyrics-container button:hover, .blyrics-container [role="button"]:hover { background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent); }
+.blyrics-container button:focus-visible, .blyrics-container [role="button"]:focus-visible { outline: 2px solid var(--m3-primary); outline-offset: 2px; }
 
 /* ===== motion.css ===== */
 :root {
@@ -336,24 +237,13 @@
 
 /* ===== responsive.css ===== */
 @media (max-width: 936px) {
-  :root {
-    --blyrics-padding: var(--m3-spacing-3);
-    --blyrics-margin: var(--m3-spacing-3);
-  }
+  :root { --blyrics-padding: var(--m3-spacing-3); --blyrics-margin: var(--m3-spacing-3); }
 }
-
 @media (max-width: 615px) {
-  :root {
-    --blyrics-padding: var(--m3-spacing-2);
-    --blyrics-margin: var(--m3-spacing-2);
-    --blyrics-border-radius: var(--m3-shape-medium);
-  }
-
-  .blyrics-footer {
-    border-radius: var(--m3-shape-medium);
-  }
+  :root { --blyrics-padding: var(--m3-spacing-2); --blyrics-margin: var(--m3-spacing-2); --blyrics-border-radius: var(--m3-shape-medium); }
+  .blyrics--line { letter-spacing: -0.01em; }
+  .blyrics-footer { border-radius: var(--m3-shape-medium); }
 }
-
 @media (prefers-reduced-motion: reduce) {
   :root {
     --m3-motion-duration-short-1: 1ms;
