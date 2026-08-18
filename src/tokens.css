@@ -1,0 +1,92 @@
+:root {
+  /* M3 Expressive semantic colour roles. Initial values are deliberately
+     neutral so the palette can be tuned independently of component rules. */
+  --m3-primary: #d0bcff;
+  --m3-on-primary: #381e72;
+  --m3-primary-container: #4f378b;
+  --m3-on-primary-container: #e9ddff;
+
+  --m3-secondary: #cbc2db;
+  --m3-on-secondary: #332d3d;
+  --m3-secondary-container: #4a4454;
+  --m3-on-secondary-container: #e8def8;
+
+  --m3-tertiary: #efb8c8;
+  --m3-on-tertiary: #492532;
+  --m3-tertiary-container: #633b48;
+  --m3-on-tertiary-container: #ffd9e3;
+
+  --m3-error: #ffb4ab;
+  --m3-on-error: #690005;
+  --m3-error-container: #93000a;
+  --m3-on-error-container: #ffdad6;
+
+  --m3-background: #141218;
+  --m3-on-background: #e6e0e9;
+  --m3-surface: #141218;
+  --m3-surface-container: #211f26;
+  --m3-surface-container-high: #2b2930;
+  --m3-surface-container-highest: #36343b;
+  --m3-on-surface: #e6e0e9;
+  --m3-on-surface-variant: #cac4d0;
+  --m3-outline: #938f99;
+  --m3-outline-variant: #49454f;
+
+  /* Shape vocabulary. Expressive does not mean every element has to be a
+     pill, so the base theme keeps a range of usable radii. */
+  --m3-shape-extra-small: 4px;
+  --m3-shape-small: 8px;
+  --m3-shape-medium: 12px;
+  --m3-shape-large: 16px;
+  --m3-shape-extra-large: 28px;
+  --m3-shape-full: 9999px;
+
+  /* Motion vocabulary. These are intentionally centralised so lyric and UI
+     animations can share one motion language. */
+  --m3-motion-duration-short: 150ms;
+  --m3-motion-duration-medium: 300ms;
+  --m3-motion-duration-long: 500ms;
+  --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+
+  /* Density / spacing vocabulary. */
+  --m3-spacing-1: 4px;
+  --m3-spacing-2: 8px;
+  --m3-spacing-3: 12px;
+  --m3-spacing-4: 16px;
+  --m3-spacing-5: 20px;
+  --m3-spacing-6: 24px;
+  --m3-spacing-8: 32px;
+}
+
+:root {
+  /* Better Lyrics semantic mapping. Keep these overrides in one place so
+     future renderer changes are easier to accommodate. */
+  --blyrics-text-color: var(--m3-on-surface);
+  --blyrics-highlight-color: color-mix(in srgb, var(--m3-primary) 75%, transparent);
+  --blyrics-active-opacity: 1;
+  --blyrics-inactive-opacity: 0.42;
+  --blyrics-translated-opacity: 0.68;
+
+  --blyrics-font-family: "Noto Sans", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --blyrics-font-weight: 700;
+  --blyrics-translated-font-weight: 500;
+
+  --blyrics-padding: var(--m3-spacing-4);
+  --blyrics-margin: var(--m3-spacing-4);
+  --blyrics-border-radius: var(--m3-shape-large);
+
+  --blyrics-scale: 0.96;
+  --blyrics-active-scale: 1;
+  --blyrics-blur-amount: 24px;
+  --blyrics-background-blur: 72px;
+  --blyrics-background-saturate: 1.35;
+
+  --blyrics-footer-bg-color: color-mix(in srgb, var(--m3-surface-container) 88%, transparent);
+  --blyrics-footer-border-color: var(--m3-outline-variant);
+  --blyrics-footer-text-color: var(--m3-on-surface-variant);
+  --blyrics-footer-link-color: var(--m3-primary);
+  --blyrics-footer-font-family: var(--blyrics-font-family);
+}
