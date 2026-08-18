@@ -1,0 +1,30 @@
+.blyrics-footer {
+  background: var(--blyrics-footer-bg-color);
+  border: 1px solid var(--blyrics-footer-border-color);
+  border-radius: var(--m3-shape-large);
+  color: var(--blyrics-footer-text-color);
+  box-shadow: 0 0.75rem 2rem color-mix(in srgb, #000 18%, transparent);
+  backdrop-filter: blur(var(--blyrics-blur-amount));
+  -webkit-backdrop-filter: blur(var(--blyrics-blur-amount));
+}
+
+.blyrics-footer a {
+  color: var(--blyrics-footer-link-color);
+}
+
+.blyrics-container [active],
+.blyrics-container button,
+.blyrics-container [role="button"] {
+  border-radius: var(--m3-shape-full);
+}
+
+.blyrics-container button:hover,
+.blyrics-container [role="button"]:hover {
+  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
+}
+
+.blyrics-container button:focus-visible,
+.blyrics-container [role="button"]:focus-visible {
+  outline: 2px solid var(--m3-primary);
+  outline-offset: 2px;
+}
