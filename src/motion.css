@@ -46,10 +46,10 @@
      noticeable horizontal wobble in dense lyric lines. */
   --blyrics-wobble-duration: var(--m3-motion-duration-long-1);
   --blyrics-word-wobble-transform-from: translateY(0) scaleX(1);
-  --blyrics-word-wobble-transform-peak: translateY(-0.015em) scaleX(1.01);
+  --blyrics-word-wobble-transform-peak: translateY(-0.02em) scaleX(1.012);
   --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1);
   --blyrics-word-wobble-transform-to: translateY(0) scaleX(1);
-  --blyrics-word-wobble-peak-offset: 0.16;
+  --blyrics-word-wobble-peak-offset: 0.18;
   --blyrics-word-wobble-settle-offset: 0.72;
   --blyrics-word-wobble-easing: var(--m3-motion-easing-standard);
   --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
@@ -66,9 +66,10 @@
   --blyrics-instrumental-wave-oscillation-duration: var(--m3-motion-duration-long-3);
   --blyrics-instrumental-wave-oscillation-easing: var(--m3-motion-easing-emphasized);
 
-  /* Use the M3E default spatial spring as the target feel for lyric scrolling. */
-  --blyrics-lyric-scroll-duration: var(--m3-motion-spring-default-spatial);
-  --blyrics-lyric-scroll-timing-function: var(--m3-motion-easing-emphasized);
+  /* Keep spatial spring duration and easing separate. Better Lyrics expects
+     a duration here and a timing function in the adjacent variable. */
+  --blyrics-lyric-scroll-duration: var(--m3-motion-duration-long-2);
+  --blyrics-lyric-scroll-timing-function: var(--m3-motion-spring-default-spatial);
 
   --blyrics-line-scroll-duration: var(--blyrics-lyric-scroll-duration);
   --blyrics-line-scroll-timing-function: var(--blyrics-lyric-scroll-timing-function);
