@@ -1,0 +1,56 @@
+name: Build theme.css
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/build-theme.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-theme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build theme.css
+        shell: bash
+        run: |
+          {
+            printf '%s\n' '/*'
+            printf '%s\n' ' * Better Lyrics M3E'
+            printf '%s\n' ' *'
+            printf '%s\n' ' * This file is generated from the source stylesheets in src/. Do not edit manually.'
+            printf '%s\n' ' */'
+            printf '\n'
+            cat src/tokens.css
+            printf '\n\n'
+            cat src/lyrics.css
+            printf '\n\n'
+            cat src/components.css
+            printf '\n\n'
+            cat src/motion.css
+            printf '\n\n'
+            cat src/responsive.css
+            printf '\n'
+          } > theme.css
+
+      - name: Commit generated theme.css
+        run: |
+          if git diff --quiet -- theme.css; then
+            echo 'theme.css is already up to date.'
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add theme.css
+          git commit -m 'chore: regenerate theme.css'
+          git push
