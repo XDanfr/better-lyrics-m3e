@@ -1,7 +1,5 @@
 :root {
-  /* M3E expressive motion is intentionally restrained for lyrics. The line
-     scale delta is visible, but small enough to read as hierarchy rather
-     than a bounce. */
+  /* M3E expressive motion, adapted for lyrics. */
   --blyrics-animate-line-scale: 1;
   --blyrics-animate-word-wobble: 1;
   --blyrics-animate-highlight-swipe: 1;
@@ -10,9 +8,10 @@
   --blyrics-animate-scroll: 1;
   --blyrics-animate-instrumental: 1;
 
-  --blyrics-scale: 0.985;
-  --blyrics-active-scale: 1;
-  --blyrics-scale-transition-duration: var(--m3-motion-duration-short-4);
+  /* Make the active-line transition visible without becoming bouncy. */
+  --blyrics-scale: 0.975;
+  --blyrics-active-scale: 1.015;
+  --blyrics-scale-transition-duration: 350ms;
   --blyrics-line-enter-transform-from: scale(var(--blyrics-scale));
   --blyrics-line-enter-transform-to: scale(var(--blyrics-active-scale));
   --blyrics-line-exit-transform-from: scale(var(--blyrics-active-scale));
@@ -23,31 +22,24 @@
   --blyrics-loader-transition-duration: var(--m3-motion-duration-long-2);
   --blyrics-loader-transition-easing: var(--m3-motion-easing-emphasized-decelerate);
 
-  --blyrics-lyric-highlight-fade-in-duration: var(--m3-motion-duration-short-3);
-  --blyrics-lyric-highlight-fade-out-duration: var(--m3-motion-duration-medium-2);
-  --blyrics-lyric-highlight-fade-in-easing: var(--m3-motion-easing-standard);
-  --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized);
+  --blyrics-lyric-highlight-fade-in-duration: 200ms;
+  --blyrics-lyric-highlight-fade-out-duration: 350ms;
+  --blyrics-lyric-highlight-fade-in-easing: var(--m3-motion-easing-emphasized-decelerate);
+  --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized-accelerate);
 
-  /* Rich-sync swipe follows the emphasized curve while preserving the
-     renderer's word-timed gradient behaviour. */
+  /* Rich-sync karaoke movement. */
   --blyrics-highlight-swipe-easing: var(--m3-motion-easing-emphasized);
-  --blyrics-highlight-swipe-start-from: -0.2;
-  --blyrics-highlight-swipe-end-from: -0.1;
-  --blyrics-highlight-swipe-start-to: 1.4;
-  --blyrics-highlight-swipe-end-to: 1.5;
-
-  --blyrics-highlight-glow-radius-from: 0.75rem;
+  --blyrics-highlight-glow-radius-from: 1rem;
   --blyrics-highlight-glow-radius-to: 0;
-  --blyrics-highlight-glow-duration-ratio: 1.1;
-  --blyrics-highlight-glow-min-duration: 800ms;
+  --blyrics-highlight-glow-duration-ratio: 1.2;
+  --blyrics-highlight-glow-min-duration: 900ms;
   --blyrics-highlight-glow-easing: var(--m3-motion-easing-emphasized);
 
-  /* A small vertical lift makes word timing perceptible without producing a
-     noticeable horizontal wobble in dense lyric lines. */
-  --blyrics-wobble-duration: var(--m3-motion-duration-long-1);
+  /* Word timing gets a small lift and expansion that is actually visible. */
+  --blyrics-wobble-duration: 550ms;
   --blyrics-word-wobble-transform-from: translateY(0) scaleX(1);
-  --blyrics-word-wobble-transform-peak: translateY(-0.02em) scaleX(1.012);
-  --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1);
+  --blyrics-word-wobble-transform-peak: translateY(-0.025em) scaleX(1.018);
+  --blyrics-word-wobble-transform-settle: translateY(0) scaleX(1.006);
   --blyrics-word-wobble-transform-to: translateY(0) scaleX(1);
   --blyrics-word-wobble-peak-offset: 0.18;
   --blyrics-word-wobble-settle-offset: 0.72;
@@ -55,22 +47,42 @@
   --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
   --blyrics-word-wobble-end-easing: var(--m3-motion-easing-emphasized-accelerate);
 
-  --blyrics-instrumental-fill-fade-duration: var(--m3-motion-duration-short-3);
-  --blyrics-instrumental-fill-fade-easing: var(--m3-motion-easing-standard);
+  --blyrics-instrumental-fill-fade-duration: 200ms;
+  --blyrics-instrumental-fill-fade-easing: var(--m3-motion-easing-emphasized-decelerate);
   --blyrics-instrumental-fill-transform-from: translateY(78%);
   --blyrics-instrumental-fill-transform-to: translateY(-4%);
   --blyrics-instrumental-fill-easing: var(--m3-motion-easing-standard);
   --blyrics-instrumental-wave-transform-from: scaleY(1.2);
   --blyrics-instrumental-wave-transform-to: scaleY(0.0001);
   --blyrics-instrumental-wave-easing: var(--m3-motion-easing-emphasized-accelerate);
-  --blyrics-instrumental-wave-oscillation-duration: var(--m3-motion-duration-long-3);
+  --blyrics-instrumental-wave-oscillation-duration: 550ms;
   --blyrics-instrumental-wave-oscillation-easing: var(--m3-motion-easing-emphasized);
 
-  /* Keep spatial spring duration and easing separate. Better Lyrics expects
-     a duration here and a timing function in the adjacent variable. */
-  --blyrics-lyric-scroll-duration: var(--m3-motion-duration-long-2);
-  --blyrics-lyric-scroll-timing-function: var(--m3-motion-spring-default-spatial);
-
-  --blyrics-line-scroll-duration: var(--blyrics-lyric-scroll-duration);
+  /* Better Lyrics uses this as the base gate for smooth WAAPI scrolling. */
+  --blyrics-lyric-scroll-duration: 500ms;
+  --blyrics-lyric-scroll-timing-function: cubic-bezier(0.27, 1.06, 0.18, 1);
+  --blyrics-line-scroll-duration: 700ms;
   --blyrics-line-scroll-timing-function: var(--blyrics-lyric-scroll-timing-function);
 }
+
+/*
+  Better Lyrics reads these special knob comments and applies the resolved
+  values to each visible line before creating its WAAPI scroll animation.
+
+  The above/below tails deliberately differ so a larger scroll move has a
+  subtle expressive depth instead of every line arriving as one rigid block.
+
+  blyrics-line-scroll-translate-y-start = var(--blyrics-line-scroll-delta-px);
+  blyrics-line-scroll-translate-y-end = 0px;
+  blyrics-line-scroll-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+  blyrics-line-scroll-end-easing = cubic-bezier(0.2, 0, 0, 1);
+  blyrics-line-scroll-below-duration = calc(
+    650ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1, 2.71828) * 110ms +
+      var(--blyrics-line-scroll-abs-relative-index) * 24ms
+  );
+  blyrics-line-scroll-above-duration = calc(
+    600ms + log(var(--blyrics-line-scroll-abs-relative-index) + 1) * 18ms
+  );
+  blyrics-line-scroll-below-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+  blyrics-line-scroll-above-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
+*/
