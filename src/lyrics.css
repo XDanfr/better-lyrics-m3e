@@ -1,55 +1,97 @@
 .blyrics-container {
   color: var(--m3-on-surface);
+  font-family: var(--blyrics-font-family);
 }
 
+/* Stage 2 focuses on hierarchy rather than animation. Better Lyrics already
+   exposes the lyric states and typography variables, so keep the visual model
+   semantic and let the later motion stage handle movement. */
 .blyrics--line {
   position: relative;
-  color: color-mix(in srgb, var(--m3-on-surface) 42%, transparent);
+  color: color-mix(in srgb, var(--m3-on-surface) 38%, transparent);
   font-family: var(--blyrics-font-family);
+  font-size: var(--blyrics-font-size);
   font-weight: var(--blyrics-font-weight);
-  letter-spacing: -0.015em;
+  line-height: var(--blyrics-line-height);
+  letter-spacing: var(--m3-lyric-tracking);
   text-wrap: balance;
   transition:
-    color var(--m3-motion-duration-medium) var(--m3-motion-easing-standard),
-    opacity var(--m3-motion-duration-medium) var(--m3-motion-easing-standard);
+    color var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard),
+    opacity var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard);
 }
 
 .blyrics--line.blyrics--active {
   color: var(--m3-on-surface);
+  opacity: var(--blyrics-active-opacity);
 }
 
 .blyrics--line.blyrics--active .blyrics-line-main {
-  text-shadow: 0 0 1.5rem color-mix(in srgb, var(--m3-primary) 18%, transparent);
+  color: inherit;
+  text-shadow: 0 0 1.25rem color-mix(in srgb, var(--m3-primary) 16%, transparent);
 }
 
+.blyrics-line-main {
+  color: inherit;
+}
+
+.blyrics--word {
+  color: inherit;
+}
+
+/* Rich-sync and line-sync highlights inherit the same primary semantic role. */
+.blyrics-word-highlight,
+.blyrics--active .blyrics--word-highlight {
+  color: var(--m3-primary);
+}
+
+/* Secondary lyric languages follow the M3 on-surface-variant hierarchy. */
 .blyrics--translated,
 .blyrics--romanized {
-  color: var(--m3-on-surface-variant);
+  color: var(--blyrics-translated-color);
+  font-family: var(--blyrics-translated-font-family);
+  font-size: var(--blyrics-translated-font-size);
   font-weight: var(--blyrics-translated-font-weight);
+  line-height: var(--m3-lyric-translated-line-height);
+  letter-spacing: var(--m3-lyric-translated-tracking);
 }
 
 .blyrics-background-line {
   color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent);
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
-.blyrics--instrumental {
-  color: var(--m3-primary);
-}
-
-.blyrics--instrumental .blyrics--instrumental-icon {
-  filter: drop-shadow(0 0 0.8rem color-mix(in srgb, var(--m3-primary) 25%, transparent));
-}
-
-.blyrics--word {
-  transition:
-    color var(--m3-motion-duration-short) var(--m3-motion-easing-standard),
-    opacity var(--m3-motion-duration-short) var(--m3-motion-easing-standard);
-}
-
-.blyrics--active .blyrics--word {
+.blyrics-background-lyric {
   color: inherit;
 }
 
-.blyrics-word-highlight {
-  color: var(--m3-primary);
+/* Instrumental sections are treated as tertiary expressive accents rather
+   than competing with the primary lyric hierarchy. */
+.blyrics--instrumental {
+  color: var(--m3-tertiary);
+  font-weight: 600;
+}
+
+.blyrics--instrumental .blyrics--instrumental-icon {
+  color: var(--m3-tertiary);
+  filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--m3-tertiary) 22%, transparent));
+}
+
+/* Keep RTL rows in the renderer's native bidi flow and avoid imposing a
+   direction-specific alignment from the theme. */
+.blyrics-bidi-sensitive,
+.blyrics-bidi-sensitive .blyrics-line-main {
+  text-wrap: balance;
+}
+
+@media (max-width: 615px) {
+  .blyrics--line {
+    letter-spacing: -0.01em;
+  }
+
+  .blyrics--translated,
+  .blyrics--romanized {
+    font-size: 1.5rem;
+  }
 }
