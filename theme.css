@@ -2,17 +2,11 @@
  * Better Lyrics M3E
  *
  * Standalone Material 3 Expressive-inspired theme for Better Lyrics.
- * M3E is used as a design-system reference; its Web Components are not
- * required by this theme.
- *
- * This file is intentionally self-contained so it can be imported directly
- * by the Better Lyrics standalone style editor.
+ * This file is intentionally self-contained for Better Lyrics' standalone
+ * theme editor. Source files remain organised under src/ for development.
  */
 
-/* ========================================================================== */
-/* M3 FOUNDATION                                                             */
-/* ========================================================================== */
-
+/* ===== tokens.css ===== */
 :root {
   /* M3 Expressive semantic colour roles. The initial palette is a dark
      baseline suited to YouTube Music's usual presentation. */
@@ -70,8 +64,6 @@
   --m3-shadow: #000000;
   --m3-scrim: #000000;
 
-  /* M3 shape corner vocabulary. Expressive uses varied shapes rather than
-     making every surface a pill. */
   --m3-shape-none: 0;
   --m3-shape-extra-small: 4px;
   --m3-shape-small: 8px;
@@ -83,12 +75,10 @@
   --m3-shape-extra-extra-large: 48px;
   --m3-shape-full: 9999px;
 
-  /* M3 state-layer opacities. */
   --m3-state-hover: 8%;
   --m3-state-focus: 10%;
   --m3-state-pressed: 10%;
 
-  /* M3 motion easing. These values mirror the M3E token defaults. */
   --m3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --m3-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
   --m3-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
@@ -96,7 +86,6 @@
   --m3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
   --m3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
 
-  /* M3E expressive spatial/effects springs. */
   --m3-motion-spring-fast-spatial: 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
   --m3-motion-spring-default-spatial: 500ms cubic-bezier(0.27, 1.06, 0.18, 1);
   --m3-motion-spring-slow-spatial: 750ms cubic-bezier(0.27, 1.06, 0.18, 1);
@@ -104,7 +93,6 @@
   --m3-motion-spring-default-effects: 200ms cubic-bezier(0.34, 0.8, 0.34, 1);
   --m3-motion-spring-slow-effects: 200ms cubic-bezier(0.34, 0.88, 0.34, 1);
 
-  /* M3E duration scale. */
   --m3-motion-duration-short-1: 50ms;
   --m3-motion-duration-short-2: 100ms;
   --m3-motion-duration-short-3: 150ms;
@@ -122,7 +110,6 @@
   --m3-motion-duration-extra-long-3: 900ms;
   --m3-motion-duration-extra-long-4: 1000ms;
 
-  /* Compact spacing vocabulary. */
   --m3-spacing-1: 4px;
   --m3-spacing-2: 8px;
   --m3-spacing-3: 12px;
@@ -131,15 +118,11 @@
   --m3-spacing-6: 24px;
   --m3-spacing-8: 32px;
 
-  /* Elevation anchors. Better Lyrics does not use M3 elevation directly yet,
-     but keeping the roles here lets UI surfaces adopt them consistently. */
   --m3-elevation-level0: none;
   --m3-elevation-level1: 0 1px 3px color-mix(in srgb, var(--m3-shadow) 20%, transparent);
   --m3-elevation-level2: 0 2px 6px color-mix(in srgb, var(--m3-shadow) 22%, transparent);
   --m3-elevation-level3: 0 4px 8px color-mix(in srgb, var(--m3-shadow) 24%, transparent);
 
-  /* Selected M3 type roles used by the theme. M3E exposes the broader 30-role
-     standard/emphasized typescale, but Better Lyrics primarily needs these. */
   --m3-type-body-large-size: 16px;
   --m3-type-body-large-line-height: 24px;
   --m3-type-body-large-weight: 400;
@@ -156,32 +139,39 @@
   --m3-type-title-medium-line-height: 24px;
   --m3-type-title-medium-weight: 500;
   --m3-type-title-medium-tracking: 0.15px;
+
+  --m3-lyric-size: 3rem;
+  --m3-lyric-line-height: 1.22;
+  --m3-lyric-weight: 700;
+  --m3-lyric-tracking: -0.02em;
+  --m3-lyric-translated-size: 1.75rem;
+  --m3-lyric-translated-line-height: 1.3;
+  --m3-lyric-translated-weight: 500;
+  --m3-lyric-translated-tracking: -0.01em;
 }
 
 :root {
-  /* Better Lyrics semantic mapping. This boundary keeps renderer-specific
-     variables out of the design-token layer above. */
   --blyrics-text-color: var(--m3-on-surface);
   --blyrics-highlight-color: color-mix(in srgb, var(--m3-primary) 75%, transparent);
   --blyrics-active-opacity: 1;
   --blyrics-inactive-opacity: 0.42;
   --blyrics-translated-opacity: 0.68;
-
-  --blyrics-font-family: "Noto Sans", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --blyrics-font-weight: 700;
+  --blyrics-font-family: "Noto Sans", var(--noto-sans-universal), Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --blyrics-font-size: var(--m3-lyric-size);
+  --blyrics-font-weight: var(--m3-lyric-weight);
+  --blyrics-line-height: var(--m3-lyric-line-height);
+  --blyrics-translated-font-size: var(--m3-lyric-translated-size);
+  --blyrics-translated-font-weight: var(--m3-lyric-translated-weight);
   --blyrics-translated-font-family: var(--blyrics-font-family);
-  --blyrics-translated-font-weight: 500;
-
+  --blyrics-translated-color: color-mix(in srgb, var(--m3-on-surface-variant) 68%, transparent);
   --blyrics-padding: var(--m3-spacing-4);
   --blyrics-margin: var(--m3-spacing-4);
   --blyrics-border-radius: var(--m3-shape-large);
-
   --blyrics-scale: 0.96;
   --blyrics-active-scale: 1;
   --blyrics-blur-amount: 24px;
   --blyrics-background-blur: 72px;
   --blyrics-background-saturate: 1.35;
-
   --blyrics-footer-bg-color: color-mix(in srgb, var(--m3-surface-container) 88%, transparent);
   --blyrics-footer-border-color: var(--m3-outline-variant);
   --blyrics-footer-text-color: var(--m3-on-surface-variant);
@@ -189,70 +179,97 @@
   --blyrics-footer-font-family: var(--blyrics-font-family);
 }
 
-/* ========================================================================== */
-/* LYRIC PRESENTATION                                                         */
-/* ========================================================================== */
-
+/* ===== lyrics.css ===== */
 .blyrics-container {
   color: var(--m3-on-surface);
+  font-family: var(--blyrics-font-family);
 }
 
 .blyrics--line {
   position: relative;
-  color: color-mix(in srgb, var(--m3-on-surface) 42%, transparent);
+  color: color-mix(in srgb, var(--m3-on-surface) 38%, transparent);
   font-family: var(--blyrics-font-family);
+  font-size: var(--blyrics-font-size);
   font-weight: var(--blyrics-font-weight);
-  letter-spacing: -0.015em;
+  line-height: var(--blyrics-line-height);
+  letter-spacing: var(--m3-lyric-tracking);
   text-wrap: balance;
   transition:
-    color var(--m3-motion-duration-medium) var(--m3-motion-easing-standard),
-    opacity var(--m3-motion-duration-medium) var(--m3-motion-easing-standard);
+    color var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard),
+    opacity var(--m3-motion-duration-medium-2) var(--m3-motion-easing-standard);
 }
 
 .blyrics--line.blyrics--active {
   color: var(--m3-on-surface);
+  opacity: var(--blyrics-active-opacity);
 }
 
 .blyrics--line.blyrics--active .blyrics-line-main {
-  text-shadow: 0 0 1.5rem color-mix(in srgb, var(--m3-primary) 18%, transparent);
+  color: inherit;
+  text-shadow: 0 0 1.25rem color-mix(in srgb, var(--m3-primary) 16%, transparent);
+}
+
+.blyrics-line-main {
+  color: inherit;
+}
+
+.blyrics--word {
+  color: inherit;
+}
+
+.blyrics-word-highlight,
+.blyrics--active .blyrics--word-highlight {
+  color: var(--m3-primary);
 }
 
 .blyrics--translated,
 .blyrics--romanized {
-  color: var(--m3-on-surface-variant);
+  color: var(--blyrics-translated-color);
+  font-family: var(--blyrics-translated-font-family);
+  font-size: var(--blyrics-translated-font-size);
   font-weight: var(--blyrics-translated-font-weight);
+  line-height: var(--m3-lyric-translated-line-height);
+  letter-spacing: var(--m3-lyric-translated-tracking);
 }
 
 .blyrics-background-line {
   color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent);
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
-.blyrics--instrumental {
-  color: var(--m3-primary);
-}
-
-.blyrics--instrumental .blyrics--instrumental-icon {
-  filter: drop-shadow(0 0 0.8rem color-mix(in srgb, var(--m3-primary) 25%, transparent));
-}
-
-.blyrics--word {
-  transition:
-    color var(--m3-motion-duration-short) var(--m3-motion-easing-standard),
-    opacity var(--m3-motion-duration-short) var(--m3-motion-easing-standard);
-}
-
-.blyrics--active .blyrics--word {
+.blyrics-background-lyric {
   color: inherit;
 }
 
-.blyrics-word-highlight {
-  color: var(--m3-primary);
+.blyrics--instrumental {
+  color: var(--m3-tertiary);
+  font-weight: 600;
 }
 
-/* ========================================================================== */
-/* COMPONENTS                                                                */
-/* ========================================================================== */
+.blyrics--instrumental .blyrics--instrumental-icon {
+  color: var(--m3-tertiary);
+  filter: drop-shadow(0 0 0.75rem color-mix(in srgb, var(--m3-tertiary) 22%, transparent));
+}
 
+.blyrics-bidi-sensitive,
+.blyrics-bidi-sensitive .blyrics-line-main {
+  text-wrap: balance;
+}
+
+@media (max-width: 615px) {
+  .blyrics--line {
+    letter-spacing: -0.01em;
+  }
+
+  .blyrics--translated,
+  .blyrics--romanized {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== components.css ===== */
 .blyrics-footer {
   background: var(--blyrics-footer-bg-color);
   border: 1px solid var(--blyrics-footer-border-color);
@@ -284,30 +301,23 @@
   outline-offset: 2px;
 }
 
-/* ========================================================================== */
-/* MOTION                                                                    */
-/* ========================================================================== */
-
+/* ===== motion.css ===== */
 :root {
   --blyrics-loader-transition-duration: var(--m3-motion-duration-long-2);
   --blyrics-loader-transition-easing: var(--m3-motion-easing-emphasized-decelerate);
-
   --blyrics-scale-transition-duration: var(--m3-motion-duration-short-3);
   --blyrics-line-enter-easing: var(--m3-motion-easing-emphasized-decelerate);
   --blyrics-line-exit-easing: var(--m3-motion-easing-emphasized-accelerate);
-
   --blyrics-lyric-highlight-fade-in-duration: var(--m3-motion-duration-short-3);
   --blyrics-lyric-highlight-fade-out-duration: var(--m3-motion-duration-medium-2);
   --blyrics-lyric-highlight-fade-in-easing: var(--m3-motion-easing-standard);
   --blyrics-lyric-highlight-fade-out-easing: var(--m3-motion-easing-emphasized);
-
   --blyrics-highlight-swipe-easing: linear;
   --blyrics-highlight-glow-radius-from: 0.9rem;
   --blyrics-highlight-glow-radius-to: 0;
   --blyrics-highlight-glow-duration-ratio: 1.15;
   --blyrics-highlight-glow-min-duration: 1s;
   --blyrics-highlight-glow-easing: var(--m3-motion-easing-emphasized);
-
   --blyrics-wobble-duration: 800ms;
   --blyrics-word-wobble-transform-from: scaleX(1);
   --blyrics-word-wobble-transform-peak: translateY(-0.025em) scaleX(1.018);
@@ -318,18 +328,13 @@
   --blyrics-word-wobble-easing: var(--m3-motion-easing-standard);
   --blyrics-word-wobble-peak-easing: var(--m3-motion-easing-emphasized-decelerate);
   --blyrics-word-wobble-end-easing: var(--m3-motion-easing-emphasized-accelerate);
-
   --blyrics-instrumental-fill-fade-duration: var(--m3-motion-duration-short-3);
   --blyrics-instrumental-fill-fade-easing: var(--m3-motion-easing-standard);
-
-  --blyrics-lyric-scroll-duration: var(--m3-motion-duration-long-3);
+  --blyrics-lyric-scroll-duration: 600ms;
   --blyrics-lyric-scroll-timing-function: var(--m3-motion-easing-emphasized);
 }
 
-/* ========================================================================== */
-/* RESPONSIVE                                                                */
-/* ========================================================================== */
-
+/* ===== responsive.css ===== */
 @media (max-width: 936px) {
   :root {
     --blyrics-padding: var(--m3-spacing-3);
@@ -342,10 +347,6 @@
     --blyrics-padding: var(--m3-spacing-2);
     --blyrics-margin: var(--m3-spacing-2);
     --blyrics-border-radius: var(--m3-shape-medium);
-  }
-
-  .blyrics--line {
-    letter-spacing: -0.01em;
   }
 
   .blyrics-footer {
@@ -371,7 +372,6 @@
     --m3-motion-duration-extra-long-2: 1ms;
     --m3-motion-duration-extra-long-3: 1ms;
     --m3-motion-duration-extra-long-4: 1ms;
-
     --blyrics-wobble-duration: 1ms;
     --blyrics-lyric-scroll-duration: 1ms;
   }
