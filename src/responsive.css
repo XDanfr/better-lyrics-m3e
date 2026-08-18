@@ -23,11 +23,35 @@
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --m3-motion-duration-short: 1ms;
-    --m3-motion-duration-medium: 1ms;
-    --m3-motion-duration-long: 1ms;
+    --m3-motion-duration-short-1: 1ms;
+    --m3-motion-duration-short-2: 1ms;
+    --m3-motion-duration-short-3: 1ms;
+    --m3-motion-duration-short-4: 1ms;
+    --m3-motion-duration-medium-1: 1ms;
+    --m3-motion-duration-medium-2: 1ms;
+    --m3-motion-duration-medium-3: 1ms;
+    --m3-motion-duration-medium-4: 1ms;
+    --m3-motion-duration-long-1: 1ms;
+    --m3-motion-duration-long-2: 1ms;
+    --m3-motion-duration-long-3: 1ms;
+    --m3-motion-duration-long-4: 1ms;
+    --m3-motion-duration-extra-long-1: 1ms;
+    --m3-motion-duration-extra-long-2: 1ms;
+    --m3-motion-duration-extra-long-3: 1ms;
+    --m3-motion-duration-extra-long-4: 1ms;
 
+    --blyrics-animate-line-scale: 0;
+    --blyrics-animate-word-wobble: 0;
+    --blyrics-animate-highlight-swipe: 1;
+    --blyrics-animate-highlight-glow: 1;
+    --blyrics-animate-highlight-fade: 1;
+    --blyrics-animate-scroll: 1;
+    --blyrics-animate-instrumental: 0;
+
+    --blyrics-scale: 1;
+    --blyrics-active-scale: 1;
     --blyrics-wobble-duration: 1ms;
     --blyrics-lyric-scroll-duration: 1ms;
+    --blyrics-line-scroll-duration: 1ms;
   }
 }
