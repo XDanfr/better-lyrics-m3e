@@ -1,0 +1,55 @@
+.blyrics-container {
+  color: var(--m3-on-surface);
+}
+
+.blyrics--line {
+  position: relative;
+  color: color-mix(in srgb, var(--m3-on-surface) 42%, transparent);
+  font-family: var(--blyrics-font-family);
+  font-weight: var(--blyrics-font-weight);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  transition:
+    color var(--m3-motion-duration-medium) var(--m3-motion-easing-standard),
+    opacity var(--m3-motion-duration-medium) var(--m3-motion-easing-standard);
+}
+
+.blyrics--line.blyrics--active {
+  color: var(--m3-on-surface);
+}
+
+.blyrics--line.blyrics--active .blyrics-line-main {
+  text-shadow: 0 0 1.5rem color-mix(in srgb, var(--m3-primary) 18%, transparent);
+}
+
+.blyrics--translated,
+.blyrics--romanized {
+  color: var(--m3-on-surface-variant);
+  font-weight: var(--blyrics-translated-font-weight);
+}
+
+.blyrics-background-line {
+  color: color-mix(in srgb, var(--m3-on-surface-variant) 55%, transparent);
+}
+
+.blyrics--instrumental {
+  color: var(--m3-primary);
+}
+
+.blyrics--instrumental .blyrics--instrumental-icon {
+  filter: drop-shadow(0 0 0.8rem color-mix(in srgb, var(--m3-primary) 25%, transparent));
+}
+
+.blyrics--word {
+  transition:
+    color var(--m3-motion-duration-short) var(--m3-motion-easing-standard),
+    opacity var(--m3-motion-duration-short) var(--m3-motion-easing-standard);
+}
+
+.blyrics--active .blyrics--word {
+  color: inherit;
+}
+
+.blyrics-word-highlight {
+  color: var(--m3-primary);
+}
