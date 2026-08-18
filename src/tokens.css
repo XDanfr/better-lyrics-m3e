@@ -123,8 +123,8 @@
   --m3-elevation-level2: 0 2px 6px color-mix(in srgb, var(--m3-shadow) 22%, transparent);
   --m3-elevation-level3: 0 4px 8px color-mix(in srgb, var(--m3-shadow) 24%, transparent);
 
-  /* Selected M3 type roles used by the theme. M3E exposes the broader 30-role
-     standard/emphasized typescale, but Better Lyrics primarily needs these. */
+  /* Selected M3 type roles used by the theme. M3E exposes a broader
+     standard/emphasized typescale, while Better Lyrics needs a smaller set. */
   --m3-type-body-large-size: 16px;
   --m3-type-body-large-line-height: 24px;
   --m3-type-body-large-weight: 400;
@@ -141,6 +141,17 @@
   --m3-type-title-medium-line-height: 24px;
   --m3-type-title-medium-weight: 500;
   --m3-type-title-medium-tracking: 0.15px;
+
+  /* Better Lyrics' large lyric roles. These deliberately sit alongside the
+     M3 type scale rather than pretending a lyric line is ordinary body text. */
+  --m3-lyric-size: 3rem;
+  --m3-lyric-line-height: 1.22;
+  --m3-lyric-weight: 700;
+  --m3-lyric-tracking: -0.02em;
+  --m3-lyric-translated-size: 1.75rem;
+  --m3-lyric-translated-line-height: 1.3;
+  --m3-lyric-translated-weight: 500;
+  --m3-lyric-translated-tracking: -0.01em;
 }
 
 :root {
@@ -152,10 +163,14 @@
   --blyrics-inactive-opacity: 0.42;
   --blyrics-translated-opacity: 0.68;
 
-  --blyrics-font-family: "Noto Sans", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --blyrics-font-weight: 700;
+  --blyrics-font-family: "Noto Sans", var(--noto-sans-universal), Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --blyrics-font-size: var(--m3-lyric-size);
+  --blyrics-font-weight: var(--m3-lyric-weight);
+  --blyrics-line-height: var(--m3-lyric-line-height);
+  --blyrics-translated-font-size: var(--m3-lyric-translated-size);
+  --blyrics-translated-font-weight: var(--m3-lyric-translated-weight);
   --blyrics-translated-font-family: var(--blyrics-font-family);
-  --blyrics-translated-font-weight: 500;
+  --blyrics-translated-color: color-mix(in srgb, var(--m3-on-surface-variant) 68%, transparent);
 
   --blyrics-padding: var(--m3-spacing-4);
   --blyrics-margin: var(--m3-spacing-4);
