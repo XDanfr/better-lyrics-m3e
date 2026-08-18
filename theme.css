@@ -96,53 +96,22 @@
   blyrics-line-scroll-above-start-easing = cubic-bezier(0.05, 0.7, 0.1, 1);
 */
 
-/* M3 Expressive loader, message and empty-state treatment. */
-.blyrics-footer {
-  background: var(--blyrics-footer-bg-color);
-  border: 1px solid var(--blyrics-footer-border-color);
-  border-radius: var(--m3-shape-large);
-  color: var(--blyrics-footer-text-color);
-  box-shadow: var(--m3-elevation-level2);
-  backdrop-filter: blur(var(--blyrics-blur-amount));
-  -webkit-backdrop-filter: blur(var(--blyrics-blur-amount));
-}
-
-.blyrics-footer a {
-  color: var(--blyrics-footer-link-color);
-}
-
-.blyrics-container [active],
-.blyrics-container button,
-.blyrics-container [role="button"] {
-  border-radius: var(--m3-shape-full);
-}
-
-.blyrics-container button:hover,
-.blyrics-container [role="button"]:hover {
-  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
-}
-
-.blyrics-container button:focus-visible,
-.blyrics-container [role="button"]:focus-visible {
-  outline: 2px solid var(--m3-primary);
-  outline-offset: 2px;
-}
-
-#blyrics-loader {
-  gap: var(--m3-spacing-4);
-  transition:
-    opacity var(--blyrics-loader-transition-duration, 0.6s) var(--blyrics-loader-transition-easing, cubic-bezier(0.22, 1, 0.36, 1)),
-    transform var(--blyrics-loader-transition-duration, 0.6s) var(--blyrics-loader-transition-easing, cubic-bezier(0.22, 1, 0.36, 1)),
-    visibility var(--blyrics-loader-transition-duration, 0.6s);
+/* M3 Expressive loader and empty-state treatment. */
+#blyrics-loader::before,
+#blyrics-loader::after {
+  box-sizing: border-box;
 }
 
 #blyrics-loader::before {
+  content: "";
+  display: block;
   width: 3.75rem;
   height: 3.75rem;
   border-radius: var(--m3-shape-extra-large);
   background: var(--m3-primary-container);
   box-shadow: var(--m3-elevation-level2);
   border: 1px solid color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  flex-shrink: 0;
   animation: m3e-loader-breathe 1.8s infinite var(--m3-motion-easing-emphasized);
 }
 
@@ -157,6 +126,8 @@
 }
 
 #blyrics-loader::after {
+  content: var(--blyrics-loader-text, "");
+  display: block;
   font-size: clamp(1.1rem, 2.2vw, 1.65rem);
   font-weight: var(--m3-type-title-medium-weight);
   line-height: var(--m3-type-title-medium-line-height);
@@ -189,11 +160,30 @@
   -webkit-text-fill-color: var(--m3-on-surface);
 }
 
-.blyrics-no-lyrics-button-container {
+/* YouTube Music renders this no-lyrics state outside Better Lyrics' own DOM. */
+#tab-renderer > ytmusic-message-renderer {
+  position: relative;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: var(--m3-spacing-3);
-  opacity: 1;
-  padding: var(--m3-spacing-2) 0;
+  min-height: 12rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: var(--m3-on-surface);
+}
+
+#tab-renderer > ytmusic-message-renderer > yt-formatted-string.text.style-scope.ytmusic-message-renderer {
+  display: block;
+  width: min(34rem, 100%);
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-shape-extra-large);
+  background: color-mix(in srgb, var(--m3-surface-container) 94%, transparent);
+  box-shadow: var(--m3-elevation-level1);
+  color: var(--m3-on-surface-variant);
+  font: var(--m3-type-body-large-weight) var(--m3-type-body-large-size)/var(--m3-type-body-large-line-height) var(--blyrics-font-family);
+  text-align: center;
 }
 
 .blyrics-no-lyrics-button-container button,
@@ -246,27 +236,5 @@
   #blyrics-loader::after,
   #blyrics-loader:not([state="showing-message"]):not([state="exiting-message"])::after {
     animation: none !important;
-  }
-
-  .blyrics-no-lyrics-button-container button,
-  .blyrics-no-lyrics-button-container [role="button"] {
-    transition: background-color var(--m3-motion-duration-short-2) linear, box-shadow var(--m3-motion-duration-short-2) linear;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --blyrics-animate-line-scale: 0;
-    --blyrics-animate-word-wobble: 0;
-    --blyrics-animate-highlight-swipe: 1;
-    --blyrics-animate-highlight-glow: 1;
-    --blyrics-animate-highlight-fade: 1;
-    --blyrics-animate-scroll: 1;
-    --blyrics-animate-instrumental: 0;
-    --blyrics-scale: 1;
-    --blyrics-active-scale: 1;
-    --blyrics-wobble-duration: 1ms;
-    --blyrics-lyric-scroll-duration: 1ms;
-    --blyrics-line-scroll-duration: 1ms;
   }
 }
